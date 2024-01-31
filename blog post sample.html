@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog post sample</title>
+  <style>
+    body {
+      margin:auto;
+      padding:100px;
+    }
+
+    div{
+      display:flex;
+      justify-content: center;
+    }
+    
+    p{
+      text-align: center;
+      margin:auto;
+      padding-top:10px;
+      padding-bottom:200px;
+      width:450px;
+    }
+
+    .image-container{
+      margin:0px;
+    }
+
+    .small-image{
+      max-width:200px;
+      max-height:200px;
+    }
+
+    .medium-image{
+      max-width:300px;
+      max-height:300px;
+    }
+
+    .large-image{
+      max-width:400px;
+    }
+
+    #fullscreenImage {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #fullscreenContainer {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    #closeFullscreen {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="image-container">
+  <img src="" class="" onclick="toggleFullscreen(0)"> 
+      </div>
+
+
+<div id="fullscreenContainer">
+  <span id="closeFullscreen" onclick="closeFullscreen()">&times;</span>
+  <img src="" id="fullscreenImage">
+</div>
+
+<script>
+  let currentIndex = 0;
+  const images = [""];
+
+  function toggleFullscreen(index) {
+    currentIndex = index;
+    const imgElement = document.getElementById('fullscreenImage');
+    imgElement.src = images[currentIndex];
+    document.getElementById('fullscreenContainer').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFullscreen() {
+    document.getElementById('fullscreenContainer').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowRight') {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById('fullscreenImage').src = images[currentIndex];
+    } else if (event.key === 'ArrowLeft') {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      document.getElementById('fullscreenImage').src = images[currentIndex];
+    } else if (event.key === 'Escape') {
+      closeFullscreen();
+    }
+  });
+</script>
+</body>
+</html>

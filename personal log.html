@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blog</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0px;
+      padding: 10px;
+      overflow-y: auto;
+      height: 10vh;
+      margin:auto;
+    }
+
+    .thumbnail-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      margin: 5px;
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: 80%;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .caption {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      color: black;
+    }
+    .caption:hover{
+      color:blue;
+    }
+  </style>
+</head>
+<body>
+
+<div id="gallery">
+<!--add post here-->
+<!--240129-->
+<a href="./240129/240129.html" class="thumbnail-container">
+    <img src="./240129/fried rice.jpeg" class="thumbnail">
+        <div class="caption">Fried rice made by Matias</div>
+          </a>
+<!--240125-->
+<a href="240125/240125.html" class="thumbnail-container">
+    <img src="./240125/crowd.heic" class="thumbnail">
+      <div class="caption">Swiss Institute with Matias</div>
+        </a>
+
+</div>
+
+</body>
+</html>
